@@ -14,7 +14,7 @@ public class ScreenChange : MonoBehaviour
 
     public void Project()
     {
-        SceneManager.LoadScene("Project");
+        SceneManager.LoadScene("Forest");
     }
 
     public void GameInfo()

@@ -10,9 +10,15 @@ public class VirtualJoyStickMain : MonoBehaviour, IDragHandler, IPointerUpHandle
     private Image containter;
     private Image joystick;
 
-    private Vector3 direction;
+    Vector3 direction;
     public Vector3 Direction { get { return direction; } }
-    
+
+    public bool showCon = true;
+    private bool isConShowing = true;
+
+    public bool syncJoyStickInput = true;
+    private bool isDragging = false;
+
     private void Start()
     {
         var imgs = GetComponentsInChildren<Image>();
@@ -36,7 +42,7 @@ public class VirtualJoyStickMain : MonoBehaviour, IDragHandler, IPointerUpHandle
             float x = Mathf.Clamp(pos.x, -1, 1);
             float y = Mathf.Clamp(pos.y, -1, 1);
 
-            direction = new Vector3(x, 0, y);
+            direction = new Vector3(x, y, 0);
             Debug.Log(direction);
 
             joystick.rectTransform.anchoredPosition = new Vector3(x * joystickVisualDistance, y * joystickVisualDistance);
@@ -49,7 +55,7 @@ public class VirtualJoyStickMain : MonoBehaviour, IDragHandler, IPointerUpHandle
     }
 
     public virtual void OnPointerUp(PointerEventData eventData)
-    {
+    {        
         direction = default(Vector3);
         joystick.rectTransform.anchoredPosition = default(Vector3);
     }
@@ -57,6 +63,17 @@ public class VirtualJoyStickMain : MonoBehaviour, IDragHandler, IPointerUpHandle
     // Update is called once per frameS
     void Update()
     {
-        
+        if(showCon != isConShowing)
+        {
+            containter.enabled = showCon;
+            joystick.enabled = showCon;
+            isConShowing = showCon;
+        }
+
+        if(syncJoyStickInput && !isDragging)
+        {
+            direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            joystick.rectTransform.anchoredPosition = new Vector3(direction.x * joystickVisualDistance, direction.y * joystickVisualDistance, 0);         
+        }
     }
 }

@@ -7,42 +7,72 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0;
-    public float jumpForce = 1.0f;
+    public CharacterController controller;
+    public VirtualJoyStickMain joystick;
 
-    private Rigidbody rb;
-    private float movementX;
-    private float movementY;
+    public float speed = 12f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
 
-    // Start is called before the first frame update
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+
+    Vector3 velocity;
+    bool isGrounded;
+
+    public TextMeshProUGUI itemsText;
+    private int items;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        items = 0;
+        SetItemText();
     }
-
-
-    void OnMove(InputValue movementValue)
+    void SetItemText()
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        movementX = movementVector.x;
-        movementY = movementVector.y;
-    }
-
-    private void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-
-        rb.AddForce(movement * speed);
-        if (Input.GetKeyDown(KeyCode.Space))
+        itemsText.text = "Item: " + items.ToString();
+        if (items >= 4)
         {
-            Jump();
+
         }
 
     }
-
-    public void Jump()
+    void Update()
     {
-        rb.AddForce(new Vector3(0.0f, jumpForce, 0.0f), ForceMode.Impulse);
+
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if(isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        float x = joystick.Direction.x;
+        float y = joystick.Direction.y;
+
+        Vector3 move = transform.right * x + transform.forward * y;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        if(Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectable"))
+        {
+            other.gameObject.SetActive(false);
+            items = items + 1;
+            SetItemText();
+        }
+
     }
 }

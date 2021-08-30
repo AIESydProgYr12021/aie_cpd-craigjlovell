@@ -1,17 +1,26 @@
 # Game Design Pitch
-This is a skeleton/reference for a game design pitch. A full design will be much longer!   
+This is a skeleton/reference for a game design pitch. A full design will be much longer!
 
 ## Working Title
 Your game’s title should communicate the gameplay and the style of the game 
 
+- Lost with the Haunted 
+
 ## Concept statement  
 The game in a tweet: one or two sentences at most that say what the game is and why it’s fun.  
+
+- Haunted [to be decided] your passing though when your car breaks down and you are forced to look for parts to repair the car while being hunted by a evil being
 
 ## Target audience  
 Age, gender, game or other relevant interests
 
+- Teens m/f games horror and escape
+
 ## Reference
 Are there simular games? what are they, how do they relate, how is your game different?
+
+- Slenderman
+    - it relates around the same concept
 
 ## Player experience and game POV 
 

@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Pause.unity
     guid: f9291138b0ce30641a5dc7b46e822ff8
   - enabled: 1
-    path: Assets/Scenes/Project.unity
-    guid: 9511fe4fabe991745a6574df32deab60
+    path: Assets/Scenes/Forest.unity
+    guid: ab6e8acb5d524a24bba168b050648c1f
   - enabled: 1
     path: Assets/Scenes/GameInfo.unity
     guid: 65a93d1e4d4c58642adb2f54936d1e93
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 5f3725b3039891a42b453279ddd1e69d, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: bffb0c02e8f1ccc43ac99700556c3471, type: 2}
