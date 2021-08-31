@@ -9,7 +9,7 @@ public class GameCurser : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
     }
 
@@ -17,11 +17,11 @@ public class GameCurser : MonoBehaviour
     {
         if (canvas.enabled == true)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

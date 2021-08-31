@@ -42,7 +42,7 @@ public class VirtualJoyStickMain : MonoBehaviour, IDragHandler, IPointerUpHandle
             float x = Mathf.Clamp(pos.x, -1, 1);
             float y = Mathf.Clamp(pos.y, -1, 1);
 
-            direction = new Vector3(x, y, 0);
+            direction = new Vector3(x, y, 0).normalized;
             Debug.Log(direction);
 
             joystick.rectTransform.anchoredPosition = new Vector3(x * joystickVisualDistance, y * joystickVisualDistance);
