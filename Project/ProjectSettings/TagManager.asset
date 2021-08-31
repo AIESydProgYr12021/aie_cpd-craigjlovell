@@ -7,6 +7,8 @@ TagManager:
   - Pause
   - Game
   - Collectable
+  - car
+  - player
   layers:
   - Default
   - TransparentFX

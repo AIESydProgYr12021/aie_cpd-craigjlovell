@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public player_health health;
     public CharacterController controller;
     public VirtualJoyStickMain joystick;
 
@@ -72,6 +74,11 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             items = items + 1;
             SetItemText();
+        }
+
+        if(items == 2 && other.gameObject.CompareTag("car"))
+        {
+            SceneManager.LoadScene("Gameover");
         }
 
     }

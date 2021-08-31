@@ -5,18 +5,60 @@ using UnityEngine.AI;
 
 public class Enery_Chase : MonoBehaviour
 {
-
     private NavMeshAgent myAgent;
     public Transform target;
-    // Start is called before the first frame update
+
+    public int damage = 10;
+    private player_health playerhealth;
+
+    public float stoppingDistance = 3f;
+    private float distanceFromTarget;
+
+    public bool chaseTarget = true;
+
+    public float delayBetweenAtt = 1.5f;
+    private float attCooldown;
+
     void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
+        myAgent.stoppingDistance = stoppingDistance;
+        attCooldown = Time.time;
+
+        playerhealth = GameObject.FindGameObjectWithTag ("player").GetComponent<player_health>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void ChaseTarget()
     {
-        myAgent.SetDestination(target.position);
+
+        distanceFromTarget = Vector3.Distance(target.position, transform.position);
+        if(distanceFromTarget >= stoppingDistance)
+        {
+            chaseTarget = true;            
+        }
+        else
+        {
+            chaseTarget = false;
+            Attack();
+        }
+
+        if(chaseTarget)
+        {
+            myAgent.SetDestination(target.position);
+        }
+    }
+    
+    void Update()
+    {        
+        ChaseTarget();
+    }
+
+    void Attack()
+    {
+        if (Time.time > attCooldown)
+        {
+            playerhealth.TakeDamage(damage);
+            attCooldown = Time.time + delayBetweenAtt;
+        }
     }
 }
