@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    Canvas canvas = null;
+    Timer timersave;
 
-    public player_health health;
     public CharacterController controller;
     public VirtualJoyStickMain joystick;
 
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI itemsText;
     private int items;
 
+
     void Start()
     {
         items = 0;
@@ -33,19 +35,13 @@ public class PlayerController : MonoBehaviour
     }
     void SetItemText()
     {
-        itemsText.text = "Item: " + items.ToString();
-        if (items >= 4)
-        {
-
-        }
-
+        itemsText.text = "Item: " + items.ToString();         
     }
     void Update()
     {
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -57,14 +53,14 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         velocity.y += gravity * Time.deltaTime;
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime);        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,9 +72,14 @@ public class PlayerController : MonoBehaviour
             SetItemText();
         }
 
-        if(items == 2 && other.gameObject.CompareTag("car"))
+        if(items == 3 && other.gameObject.CompareTag("car"))
         {
-            SceneManager.LoadScene("Gameover");
+            Time.timeScale = 0;
+            canvas = null;
+            canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
+            canvas.enabled = false;
+            canvas = GameObject.FindGameObjectWithTag("Gameover").GetComponent<Canvas>();
+            canvas.enabled = true;
         }
 
     }

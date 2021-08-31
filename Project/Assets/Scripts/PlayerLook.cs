@@ -11,12 +11,6 @@ public class PlayerLook : MonoBehaviour
     public Transform playerBody;
 
     float xRot = 0f;
-
-    void Start()
-    {
-
-    }
-
     
     void Update()
     {

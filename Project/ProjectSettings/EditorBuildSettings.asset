@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: a970542ba8bad1b408ed00edd65e6df4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Gameover.unity
     guid: 49f32f522d8299d439b21b330b061267
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Pause.unity
     guid: f9291138b0ce30641a5dc7b46e822ff8
   - enabled: 1

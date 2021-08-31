@@ -5,6 +5,12 @@ using UnityEngine;
 public class Pause : MonoBehaviour
 {
     Canvas canvas = null;
+
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))

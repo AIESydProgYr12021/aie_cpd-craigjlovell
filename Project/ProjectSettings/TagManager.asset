@@ -9,6 +9,8 @@ TagManager:
   - Collectable
   - car
   - player
+  - Gameover
+  - Dead
   layers:
   - Default
   - TransparentFX

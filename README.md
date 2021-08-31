@@ -1,15 +1,14 @@
 # PROJECT NAME
 
 ## About the Game
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Horror escape style first person game aim to collect the hidden items to repair your car to escape before meeting your doom.
 
 ### Contributors:
 Contributors to the project are strictly limated to AIE Students as part of their group work project.
 
-Members (example):
- - John Doe: designer
- - John Smith: programmer
- - Sandra Dee: artist
+Members:
+ - Craig Lovell
+ - Jordan W (Helped on some things)
 
 
 ## Build Steps:
@@ -37,3 +36,6 @@ Daily builds of the project should be placed on the local campus network drive
 
 # Credits:
  Are there assets, sounds or media included within the project that require attributation? list them here:
+
+# Builds:
+https://aiesydprogyr12021.github.io/aie_cpd-craigjlovell/
