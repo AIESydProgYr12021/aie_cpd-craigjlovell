@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class GameCurser : MonoBehaviour
 {
-    Canvas canvas = null;
+    //Canvas canvas = null;
 
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
+        //canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
     }
 
     void Update()
     {
-        if (canvas.enabled == true)
-        {
-            //Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            //Cursor.lockState = CursorLockMode.Confined;
-        }
+
+        //if (canvas.enabled == true)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
+        //else
+        //{
+        //    Cursor.lockState = CursorLockMode.Confined;
+        //}               
     }
 }

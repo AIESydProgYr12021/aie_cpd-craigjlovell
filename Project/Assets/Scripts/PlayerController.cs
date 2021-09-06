@@ -8,10 +8,10 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     Canvas canvas = null;
-    Timer timersave;
 
     public CharacterController controller;
     public VirtualJoyStickMain joystick;
+    public JoystickLook lookstick;
 
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -27,18 +27,33 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI itemsText;
     private int items;
 
+    float moveX;
+    float moveZ;
+
+    bool isKeyboard;
+    bool isJoysticks;
+
 
     void Start()
     {
         items = 0;
         SetItemText();
+
+        isJoysticks = FindObjectOfType<InputControls>().joysticks;
+        isKeyboard = FindObjectOfType<InputControls>().keyboard;
+
     }
+
     void SetItemText()
     {
         itemsText.text = "Item: " + items.ToString();         
     }
+
     void Update()
     {
+        isJoysticks = FindObjectOfType<InputControls>().joysticks;
+        isKeyboard = FindObjectOfType<InputControls>().keyboard;
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -46,10 +61,19 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = joystick.Direction.x;
-        float y = joystick.Direction.y;
+        if (isJoysticks)
+        {
+            moveX = joystick.Direction.x;
+            moveZ = joystick.Direction.z;
+        }
 
-        Vector3 move = transform.right * x + transform.forward * y;
+        if (isKeyboard)
+        {
+            moveX = Input.GetAxis("Horizontal");
+            moveZ = Input.GetAxis("Vertical");
+        }
+
+        Vector3 move = transform.right * moveX + transform.forward * moveZ;
 
         controller.Move(move * speed * Time.deltaTime);
 

@@ -13,9 +13,6 @@ public class JoystickLook : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoi
     Vector3 direction;
     public Vector3 Direction { get { return direction; } }
 
-    public bool showCon = true;
-    private bool isConShowing = true;
-
     public bool syncJoyStickInput = true;
     private bool isDragging = false;
 
@@ -63,13 +60,6 @@ public class JoystickLook : MonoBehaviour, IDragHandler, IPointerUpHandler, IPoi
     // Update is called once per frameS
     void Update()
     {
-        if (showCon != isConShowing)
-        {
-            containter.enabled = showCon;
-            joystick.enabled = showCon;
-            isConShowing = showCon;
-        }
-
         if (syncJoyStickInput && !isDragging)
         {
             direction = new Vector2(Input.GetAxis("HozX"), Input.GetAxis("VertY"));
