@@ -6,9 +6,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
-{
+{    
     Canvas canvas = null;
 
+    public Inv Inventory;
     public CharacterController controller;
     public VirtualJoyStickMain joystick;
     public JoystickLook lookstick;
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
 
     public TextMeshProUGUI itemsText;
-    private int items;
+    public int items;
 
     float moveX;
     float moveZ;
@@ -89,13 +90,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Collectable"))
-        {
-            other.gameObject.SetActive(false);
-            items = items + 1;
-            SetItemText();
-        }
-
         if(items == 3 && other.gameObject.CompareTag("car"))
         {
             Time.timeScale = 0;
@@ -105,6 +99,15 @@ public class PlayerController : MonoBehaviour
             canvas = GameObject.FindGameObjectWithTag("Gameover").GetComponent<Canvas>();
             canvas.enabled = true;
         }
+    }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        InvItems item = hit.collider.GetComponent<InvItems>();
+        if(item != null)
+        {
+            Inventory.AddItem(item);            
+            SetItemText();
+        }
     }
 }

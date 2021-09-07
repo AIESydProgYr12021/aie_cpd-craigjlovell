@@ -2,10 +2,10 @@
 - Lost in the Haunted woods
 
 ## About the Game
-Horror escape style first person game aim to collect the hidden items to repair your car to escape before meeting your doom.
+- Horror escape style first person game aim to collect the hidden items to repair your car to escape before meeting your doom.
 
 ### Contributors:
-Contributors to the project are strictly limated to AIE Students as part of their group work project.
+- Contributors to the project are strictly limated to AIE Students as part of their group work project.
 
 Members:
  - Craig Lovell

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Enery_Chase : MonoBehaviour
 {
-    private NavMeshAgent myAgent;
+    public NavMeshAgent myAgent;
     public Transform target;
 
     public int damage = 10;
@@ -23,8 +23,7 @@ public class Enery_Chase : MonoBehaviour
     {
         myAgent = GetComponent<NavMeshAgent>();
         myAgent.stoppingDistance = stoppingDistance;
-        attCooldown = Time.time;
-
+        attCooldown = Time.time;        
         playerhealth = GameObject.FindGameObjectWithTag ("player").GetComponent<player_health>();
     }
 

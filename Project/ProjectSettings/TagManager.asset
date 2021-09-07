@@ -11,6 +11,7 @@ TagManager:
   - player
   - Gameover
   - Dead
+  - Debug
   layers:
   - Default
   - TransparentFX
