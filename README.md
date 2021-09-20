@@ -33,13 +33,12 @@ The project can currently be built for both windows and webgl in the following w
     * PC Build: `builds/pc/YourGame.exe` 
     * WebGL Build: `builds/web/index.html`
 
-## Daily Builds:
-Daily builds of the project should be placed on the local campus network drive
-
-
 
 # Credits:
  Are there assets, sounds or media included within the project that require attributation? list them here:
+Listed in better detail in powerpoint
+[Lost in the haunted woods](Documentation/Lost_in_the_Haunted_Woods.pdf)
+
 
 # Builds:
 https://aiesydprogyr12021.github.io/aie_cpd-craigjlovell/
