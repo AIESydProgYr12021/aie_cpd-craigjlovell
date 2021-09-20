@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 860005491049229517}
   - component: {fileID: 860005491049229506}
   - component: {fileID: 860005491049229507}
-  - component: {fileID: 860005492419764670}
+  - component: {fileID: 7201023182858593170}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Collectable
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.38, y: 0.29, z: 0.13}
   m_Center: {x: -0.0009998381, y: 0.27, z: 0.013251368}
---- !u!114 &860005492419764670
+--- !u!114 &7201023182858593170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,4 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a0c70727d20274f93db2649b33203e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Image: {fileID: 21300000, guid: f5d9bcfdef890f146a91fd7ed941bf25, type: 3}
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  _Image: {fileID: 21300000, guid: 2274eb07275208f43b78f14de7a01636, type: 3}

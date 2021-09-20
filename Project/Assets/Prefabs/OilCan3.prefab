@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8421131270177612078}
   - component: {fileID: 8421131270176613358}
   - component: {fileID: 5335451412502739794}
+  - component: {fileID: 7570057552819273899}
   m_Layer: 0
   m_Name: OilCan3
   m_TagString: Collectable
@@ -95,3 +96,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9256259, y: 0.7623122, z: 2.3193734}
   m_Center: {x: -0.10886699, y: 0, z: 2.61}
+--- !u!114 &7570057552819273899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421131270178553134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02eab7e0cf2fc0644b4be1bf84824f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  _Image: {fileID: 21300000, guid: 15be12bfeb927fd4f91766df9aad06c8, type: 3}

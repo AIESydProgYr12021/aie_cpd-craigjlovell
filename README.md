@@ -6,6 +6,9 @@
 
 ### Contributors:
 - Contributors to the project are strictly limated to AIE Students as part of their group work project.
+Craig Lovell
+Daniel Sohler
+Kade Fairweather
 
 Members:
  - Craig Lovell

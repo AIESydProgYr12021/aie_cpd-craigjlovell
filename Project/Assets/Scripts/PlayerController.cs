@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (isJoysticks)
         {
             moveX = joystick.Direction.x;
-            moveZ = joystick.Direction.z;
+            moveZ = joystick.Direction.y;
         }
 
         if (isKeyboard)

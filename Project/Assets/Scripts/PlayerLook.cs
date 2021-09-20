@@ -66,8 +66,8 @@ public class PlayerLook : MonoBehaviour
         xRot -= mouseY;
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
-        yRot += mouseX;      
-
+        yRot += mouseX;
+             
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         playerBody.transform.localRotation = Quaternion.Euler(0f, yRot, 0f);
 

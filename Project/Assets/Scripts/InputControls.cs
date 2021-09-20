@@ -29,6 +29,7 @@ public class InputControls : MonoBehaviour
             lookJoystick.gameObject.SetActive(false);
             look.useJoystick = false;
             look.useMouse = true;
+            moveJoystick.syncJoyStickInput = joysticks;
         }
 
     }

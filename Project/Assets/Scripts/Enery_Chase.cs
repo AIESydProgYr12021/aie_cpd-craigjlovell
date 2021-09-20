@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class Enery_Chase : MonoBehaviour
 {
+    private Animation animation;
     public NavMeshAgent myAgent;
     public Transform target;
 
@@ -21,10 +23,13 @@ public class Enery_Chase : MonoBehaviour
 
     void Start()
     {
+        animation = GetComponent<Animation>();
+        animation.Play("Walk");
+
         myAgent = GetComponent<NavMeshAgent>();
         myAgent.stoppingDistance = stoppingDistance;
         attCooldown = Time.time;        
-        playerhealth = GameObject.FindGameObjectWithTag ("player").GetComponent<player_health>();
+        playerhealth = GameObject.FindGameObjectWithTag("player").GetComponent<player_health>();
     }
 
     void ChaseTarget()
@@ -33,12 +38,14 @@ public class Enery_Chase : MonoBehaviour
         distanceFromTarget = Vector3.Distance(target.position, transform.position);
         if(distanceFromTarget >= stoppingDistance)
         {
-            chaseTarget = true;            
+            chaseTarget = true;
+            animation.Play("Walk");
         }
         else
         {
-            chaseTarget = false;
+            chaseTarget = false;            
             Attack();
+            animation.Play("Attack1");
         }
 
         if(chaseTarget)
